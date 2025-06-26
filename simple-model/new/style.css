@@ -1,0 +1,223 @@
+/* Apple-Style Anki Design - Simple Model Template */
+
+/* CSS Custom Properties */
+:root {
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-tertiary: #a1a1a6;
+    --divider: #d2d2d7;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f7;
+    --accent: #007aff;
+}
+
+/* Dark Mode */
+.nightMode {
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --text-tertiary: #6e6e73;
+    --divider: #424245;
+    --bg-primary: #000000;
+    --bg-secondary: #1c1c1e;
+    --accent: #0a84ff;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+    font-family: 'メイリオ', 'Meiryo', 'Osaka', 'ＭＳ Ｐゴシック', 'MS PGothic',
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.5;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Question Section */
+.question-container {
+    margin-bottom: 1.25rem;
+}
+
+.question-side {
+    font-size: 2.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    word-break: break-word;
+}
+
+/* Answer Section */
+.answer-container {
+    margin-top: 2rem;
+}
+
+.answer-content {
+    font-size: 1.875rem;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background: var(--divider);
+    border: none;
+    margin: 1.25rem auto 2rem auto;
+    width: 60%;
+    opacity: 0.6;
+}
+
+/* Ruby (Furigana) Support */
+ruby {
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    margin: 0 0.02em;
+}
+
+ruby rt {
+    display: block;
+    font-size: 0.5em;
+    line-height: 1;
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 0.2em 0;
+    margin-bottom: 0.4em;
+    font-weight: 400;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+ruby:hover rt {
+    opacity: 1;
+    color: var(--text-primary);
+}
+
+/* Front side ruby styling - always visible with better contrast */
+#fs ruby rt {
+    opacity: 1 !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Front side container styling */
+#fs {
+    margin-bottom: 1.25rem;
+}
+
+/* Mobile Responsiveness - Optimized for iPhone 16 Pro */
+@media (max-width: 768px) {
+    .card {
+        padding: 2.5rem 2rem;
+        min-height: 200px;
+    }
+
+    .question-side {
+        font-size: 2.25rem;
+    }
+
+    .answer-content {
+        font-size: 1.5rem;
+    }
+
+    .question-container {
+        margin-bottom: 1rem;
+    }
+
+    #fs {
+        margin-bottom: 1rem;
+    }
+
+    .answer-container {
+        margin-top: 1.75rem;
+    }
+
+    .divider {
+        margin: 1rem auto 1.75rem auto;
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 2rem 1rem;
+    }
+
+    .question-side {
+        font-size: 2.25rem;
+    }
+
+    .answer-content {
+        font-size: 1.5rem;
+    }
+
+    .question-container {
+        margin-bottom: 0.875rem;
+    }
+
+    #fs {
+        margin-bottom: 0.875rem;
+    }
+
+    .answer-container {
+        margin-top: 1.5rem;
+    }
+
+    .divider {
+        margin: 0.875rem auto 1.5rem auto;
+    }
+}
+
+/* Landscape phones */
+@media (max-height: 480px) and (orientation: landscape) {
+    .card {
+        padding: 1.5rem 2rem;
+        min-height: auto;
+    }
+
+    .question-container {
+        margin-bottom: 0.75rem;
+    }
+
+    #fs {
+        margin-bottom: 0.75rem;
+    }
+
+    .answer-container {
+        margin-top: 1rem;
+    }
+
+    .divider {
+        margin: 0.75rem auto 1rem auto;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .card {
+        padding: 1rem;
+        color: #000000;
+    }
+
+    ruby rt {
+        opacity: 1 !important;
+        color: #666666 !important;
+    }
+}

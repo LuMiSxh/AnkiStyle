@@ -1,0 +1,29 @@
+<div id="answer" class="{{Kind}}">
+    <div id="radical-image">{{Stroke Order Image}}</div>
+    {{#Variants}}
+    <div id="variant-images">{{Variants}}</div>
+    {{/Variants}}
+</div>
+
+<div id="meaning">
+    <span id="english-keyword">{{English Keyword}}</span>
+    {{#Japanese Name}}
+    <span id="japanese-name">{{furigana:Japanese Name}}</span>
+    {{/Japanese Name}}
+    {{#Note}}<span class="note-marker">＊</span>{{/Note}}
+</div>
+
+{{#Example Usage}}
+<div id="example-usage" class="{{Kind}}">{{Example Usage}}</div>
+{{/Example Usage}}
+
+{{#Note}}
+<div id="note">
+    <h2>Note</h2>
+    <p><span class="note-marker">＊</span>{{furigana:Note}}</p>
+</div>
+{{/Note}}
+
+<div id="top-right">
+    <span class="en">Stroke Count</span><span class="ja">画数</span>: <strong>{{Stroke Count}}</strong>
+</div>

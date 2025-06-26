@@ -1,0 +1,12 @@
+.card {
+    font-family: arial;
+    font-size: 20px;
+    max-width: 800px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: black;
+    background-color: white;
+}

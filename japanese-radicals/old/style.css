@@ -1,0 +1,221 @@
+/* #c04020 red */
+/* #e08030 orange */
+/* #80a040 green */
+/* #1090c0 blue */
+/* #a06090 purple */
+
+/* Please ignore - hides a few things, used by the commented toggles below */
+.ja {
+    display: none
+}
+
+.toggle-glossary {
+    display: none
+}
+
+/* Uncomment to use Japanese */
+.ja {
+    display: initial
+}
+
+.en {
+    display: none
+}
+
+@font-face {
+    font-family: 'Sawarabi Gothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url(_SawarabiGothic-Regular.ttf);
+}
+
+ruby {
+    display: inline-block;
+    line-height: 1em;
+    position: relative;
+}
+
+rb {
+    display: inline-block;
+    padding-top: 0.7em;
+    margin-top: 1px;
+}
+
+rt {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0.5;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.mobile ruby {
+    display: inline-flex;
+    flex-direction: column-reverse;
+}
+
+.mobile rb, .mobile rt {
+    display: inline;
+    line-height: 1;
+    position: unset;
+    width: unset;
+    top: unset;
+    padding: unset;
+}
+
+.mobile #content {
+    margin: 0;
+}
+
+.card {
+    text-align: center;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 15px;
+    color: #555;
+    background: #fafafa;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #ddd;
+    color: #777;
+    margin: 20px 20px 5px;
+    padding-bottom: 5px;
+    font-weight: normal;
+}
+
+#question, #answer {
+    color: #333;
+    background: #aaa;
+    overflow: hidden;
+}
+
+#question.kanji, #answer.kanji {
+    background: #c04020; /* red */
+}
+
+#question.radical, #answer.radical {
+    background: #a06090; /* purple */
+}
+
+#radical-image svg {
+    margin: 0 -5px -5px -5px;
+    height: 145px;
+    width: 145px;
+}
+
+#question svg path, #answer svg path {
+    stroke: #ffffff;
+}
+
+/* Only needed for the B like radicals mound and town */
+#question svg rect, #answer svg rect {
+    stroke: #ffffff;
+    fill: #ffffff !important;
+}
+
+#question svg text, #answer svg text {
+    fill: #ffffff;
+    opacity: 0.5;
+}
+
+#question svg text {
+    display: none;
+}
+
+#variant-images svg {
+    margin: 0 -5px -5px -5px;
+    height: 115px;
+    width: 115px;
+    opacity: 0.75;
+}
+
+#variant-images svg text {
+    font-size: 9px;
+}
+
+#instruction, #meaning {
+    font-size: 18px;
+    padding: 7px 10px;
+    text-align: center;
+    color: #444;
+    background: #eee;
+}
+
+.mobile #instruction, .mobile #meaning {
+    padding: 7px 10px;
+}
+
+#instruction ruby, #meaning ruby {
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin: 0 20px;
+}
+
+#english-keyword {
+    font-weight: bold;
+}
+
+#japanese-name {
+    padding-left: 10px;
+}
+
+#example-usage {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#example-usage svg {
+    height: 115px;
+    width: 115px;
+    margin-bottom: -10px;
+    height: 115px;
+    width: 115px;
+}
+
+#example-usage svg g {
+    stroke: #555;
+}
+
+/* Highlight SVG Radicals */
+#example-usage.kanji svg g[kvg\:radical=tradit],
+#example-usage.kanji svg g[kvg\:radical=tradit] path,
+#example-usage.kanji svg g[kvg\:radical=general] path {
+    stroke: #c04020; /* red */
+}
+
+#example-usage.radical svg g[kvg\:radical=tradit],
+#example-usage.radical svg g[kvg\:radical=tradit] path,
+#example-usage.radical svg g[kvg\:radical=general] path {
+    stroke: #a06090; /* purple */
+}
+
+#example-usage svg text {
+    fill: #000;
+    opacity: 0.34;
+    font-size: 9px;
+    stroke: none;
+}
+
+.radical-position-glyph {
+    color: #1090c0;
+}
+
+#note-marker {
+    margin: 0 5px;
+    color: #e08030;
+    font-weight: bold;
+}
+
+#top-right {
+    text-align: right;
+    position: absolute;
+    top: 8px;
+    right: 13px;
+    color: #ffffff;
+}

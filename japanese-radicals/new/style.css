@@ -1,0 +1,397 @@
+/* Apple-Style Anki Design - Japanese Radicals Template */
+
+/* CSS Custom Properties */
+:root {
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-tertiary: #a1a1a6;
+    --divider: #d2d2d7;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f7;
+    --accent: #007aff;
+    --kanji-red: #ff3b30;
+    --radical-purple: #af52de;
+    --success: #34c759;
+    --warning: #ff9500;
+}
+
+/* Dark Mode */
+.nightMode {
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --text-tertiary: #6e6e73;
+    --divider: #424245;
+    --bg-primary: #000000;
+    --bg-secondary: #1c1c1e;
+    --accent: #0a84ff;
+    --kanji-red: #ff453a;
+    --radical-purple: #bf5af2;
+    --success: #30d158;
+    --warning: #ff9f0a;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+    font-family: 'メイリオ', 'Meiryo', 'Osaka', 'ＭＳ Ｐゴシック', 'MS PGothic',
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Language Toggle Support */
+.ja {
+    display: initial;
+}
+
+.en {
+    display: none;
+}
+
+/* Question/Answer Containers */
+#question, #answer {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#question.kanji, #answer.kanji {
+    background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+}
+
+#question.radical, #answer.radical {
+    background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);
+}
+
+/* Dark mode gradients */
+.nightMode #question.kanji,
+.nightMode #answer.kanji {
+    background: linear-gradient(135deg, #2d1b1b 0%, #3d2525 100%);
+}
+
+.nightMode #question.radical,
+.nightMode #answer.radical {
+    background: linear-gradient(135deg, #2d1d3d 0%, #3d2b4d 100%);
+}
+
+/* SVG Styling */
+#radical-image svg {
+    width: 140px;
+    height: 140px;
+    margin: 0;
+    transition: transform 0.3s ease;
+}
+
+#radical-image svg:hover {
+    transform: scale(1.05);
+}
+
+#question svg path, #answer svg path {
+    stroke: #ffffff;
+    stroke-width: 2;
+    fill: none;
+}
+
+#question svg rect, #answer svg rect {
+    stroke: #ffffff;
+    stroke-width: 2;
+    fill: #ffffff !important;
+}
+
+#question svg text, #answer svg text {
+    fill: #ffffff;
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+#question svg text {
+    display: none;
+}
+
+/* Variant Images */
+#variant-images {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#variant-images svg {
+    width: 100px;
+    height: 100px;
+    opacity: 0.85;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+#variant-images svg:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+#variant-images svg text {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+/* Instruction Section */
+#instruction {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Meaning Section */
+#meaning {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+#english-keyword {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    display: block;
+    letter-spacing: -0.01em;
+}
+
+#japanese-name {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding-left: 0;
+}
+
+/* Example Usage */
+#example-usage {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+}
+
+#example-usage svg {
+    width: 100px;
+    height: 100px;
+    margin: 0.5rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.25rem;
+}
+
+#example-usage svg g {
+    stroke: var(--text-secondary);
+    stroke-width: 1.5;
+}
+
+/* Highlight SVG Radicals */
+#example-usage.kanji svg g[kvg\:radical=tradit],
+#example-usage.kanji svg g[kvg\:radical=tradit] path,
+#example-usage.kanji svg g[kvg\:radical=general] path {
+    stroke: var(--kanji-red);
+    stroke-width: 2;
+}
+
+#example-usage.radical svg g[kvg\:radical=tradit],
+#example-usage.radical svg g[kvg\:radical=tradit] path,
+#example-usage.radical svg g[kvg\:radical=general] path {
+    stroke: var(--radical-purple);
+    stroke-width: 2;
+}
+
+#example-usage svg text {
+    fill: var(--text-tertiary);
+    opacity: 0.6;
+    font-size: 10px;
+    stroke: none;
+}
+
+/* Note Section */
+#note {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    text-align: left;
+    border-left: 4px solid var(--warning);
+}
+
+#note h2 {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin: 0 0 1rem 0;
+    padding: 0;
+    border: none;
+    font-weight: 600;
+}
+
+#note p {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.note-marker {
+    color: var(--warning);
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin: 0 0.5rem;
+}
+
+/* Top Right Info */
+#top-right {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+}
+
+#top-right strong {
+    color: #fbbf24;
+}
+
+/* Ruby Support */
+ruby {
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    margin: 0 0.05em;
+}
+
+ruby rt {
+    display: block;
+    font-size: 0.65em;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 0.2em 0;
+    margin-bottom: 0.3em;
+    font-weight: normal;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+ruby:hover rt {
+    opacity: 1;
+    color: var(--text-primary);
+}
+
+/* Headers */
+h2 {
+    font-size: 1.125rem;
+    border-bottom: 1px solid var(--divider);
+    color: var(--text-primary);
+    margin: 1.5rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Paragraphs */
+p {
+    margin: 0.75rem 0;
+    color: var(--text-secondary);
+}
+
+/* Radical Position Glyph */
+.radical-position-glyph {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .card {
+        padding: 2.5rem 2rem;
+    }
+
+    #question, #answer {
+        padding: 1.5rem;
+    }
+
+    #radical-image svg {
+        width: 120px;
+        height: 120px;
+    }
+
+    #variant-images svg {
+        width: 80px;
+        height: 80px;
+    }
+
+    #english-keyword {
+        font-size: 1.5rem;
+    }
+
+    #japanese-name {
+        font-size: 1.125rem;
+    }
+
+    #top-right {
+        position: static;
+        display: inline-block;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 2rem 1rem;
+    }
+
+    #question, #answer {
+        padding: 1rem;
+    }
+
+    #radical-image svg {
+        width: 100px;
+        height: 100px;
+    }
+
+    #variant-images svg {
+        width: 70px;
+        height: 70px;
+    }
+
+    #english-keyword {
+        font-size: 1.25rem;
+    }
+
+    #japanese-name {
+        font-size: 1rem;
+    }
+
+    #instruction {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
