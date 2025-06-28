@@ -40,7 +40,7 @@
     color: var(--text-primary);
     text-align: left;
     line-height: 1.6;
-    min-height: 200px;
+    min-height: 300px;
 }
 
 /* Content Styling */
@@ -145,5 +145,21 @@ blockquote {
 @media (max-width: 480px) {
     .card {
         padding: 2rem 1rem;
+    }
+}
+
+/* Landscape phones */
+@media (max-height: 480px) and (orientation: landscape) {
+    .card {
+        padding: 1.5rem 2rem;
+        min-height: auto;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .card {
+        padding: 1rem;
+        color: #000000;
     }
 }
